@@ -14,6 +14,8 @@ public class Restaurante {
     private String nomPlato;
     @Column(name = "precioPlato")
     private float precioPlato;
+    @Column(name = "foto")
+    private String foto;
 
     //    pertenece a un detalleReserva
     @OneToMany(mappedBy = "tieneRestaurante")
@@ -22,9 +24,10 @@ public class Restaurante {
     public Restaurante() {
     }
 
-    public Restaurante(String nomPlato, float precioPlato) {
+    public Restaurante(String nomPlato, float precioPlato, String foto) {
         this.nomPlato = nomPlato;
         this.precioPlato = precioPlato;
+        this.foto = foto;
     }
 
     public long getId() {
@@ -45,6 +48,14 @@ public class Restaurante {
 
     public float getPrecioPlato() {
         return precioPlato;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public void setPrecioPlato(float precioPlato) {

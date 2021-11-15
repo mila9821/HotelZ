@@ -20,6 +20,8 @@ public class Habitacion {
     private float precio;
     @Column(name = "descripcion")
     private String descripcion;
+    @Column(name = "foto")
+    private String foto;
 
     //    pertenece a un detalleReserva
     @OneToMany(mappedBy = "tieneHabitacion")
@@ -28,12 +30,13 @@ public class Habitacion {
     public Habitacion() {
     }
 
-    public Habitacion(String nombre, String estado, String tipo, float precio, String descripcion) {
+    public Habitacion(String nombre, String estado, String tipo, float precio, String descripcion, String foto) {
         this.nombre = nombre;
         this.estado = estado;
         this.tipo = tipo;
         this.precio = precio;
         this.descripcion = descripcion;
+        this.foto = foto;
     }
 
     public long getId() {

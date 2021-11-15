@@ -1,6 +1,5 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
-import com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer;
 
 import javax.persistence.*;
 
@@ -23,6 +22,8 @@ public class Cliente {
     private String pais;
     @Column(name = "dni")
     private String dni;
+    @Column(name = "foto")
+    private String foto;
 
     @ManyToOne
     @JoinColumn(name = "tieneTestimonio", referencedColumnName = "id")
@@ -35,13 +36,14 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nombre, String foto, String modo, String telefono, String email, String pais, String dni) {
+    public Cliente(String nombre, String modo, String telefono, String email, String pais, String dni, String foto) {
         this.nombre = nombre;
         this.modo = modo;
         this.telefono = telefono;
         this.email = email;
         this.pais = pais;
         this.dni = dni;
+        this.foto = foto;
     }
 
     public long getId() {
@@ -97,6 +99,14 @@ public class Cliente {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public Testimonio getTieneTestimonio() {
