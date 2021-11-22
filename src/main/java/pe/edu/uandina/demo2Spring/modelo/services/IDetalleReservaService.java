@@ -1,5 +1,6 @@
 package pe.edu.uandina.demo2Spring.modelo.services;
 
+import pe.edu.uandina.demo2Spring.modelo.Administrador;
 import pe.edu.uandina.demo2Spring.modelo.DetalleReserva;
 
 import java.util.List;

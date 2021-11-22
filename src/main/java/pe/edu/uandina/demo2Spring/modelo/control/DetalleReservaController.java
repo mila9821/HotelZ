@@ -1,9 +1,9 @@
 package pe.edu.uandina.demo2Spring.modelo.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import pe.edu.uandina.demo2Spring.modelo.Administrador;
 import pe.edu.uandina.demo2Spring.modelo.DetalleReserva;
 import pe.edu.uandina.demo2Spring.modelo.services.IDetalleReservaService;
 
@@ -19,4 +19,5 @@ public class DetalleReservaController {
     public List<DetalleReserva> listar(){
         return detalleReservaService.findAll();
     }
+
 }
