@@ -18,8 +18,9 @@ public class Restaurante {
     private String foto;
 
     //    pertenece a un detalleReserva
-    @OneToMany(mappedBy = "tieneRestaurante")
-    private List<DetalleReserva> detalleReservas;
+    @ManyToOne
+    @JoinColumn(name = "tieneRestaurante", referencedColumnName = "id")
+    private DetalleReserva tieneRestaurante;
 
     public Restaurante() {
     }
@@ -60,5 +61,13 @@ public class Restaurante {
 
     public void setPrecioPlato(float precioPlato) {
         this.precioPlato = precioPlato;
+    }
+
+    public DetalleReserva getTieneRestaurante() {
+        return tieneRestaurante;
+    }
+
+    public void setTieneRestaurante(DetalleReserva tieneRestaurante) {
+        this.tieneRestaurante = tieneRestaurante;
     }
 }

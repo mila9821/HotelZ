@@ -21,19 +21,20 @@ public class DetalleReserva {
     @Column(name = "dias")
     private int dias;
 
-    //    pertenece a un cliente
-    @OneToMany(mappedBy = "tieneDetalleReserva")
-    private List<Cliente> clientes;
+   // cliente
+    @ManyToOne
+    @JoinColumn(name = "tieneDetalleReserva", referencedColumnName = "id")
+    private Cliente tieneDetalleReserva;
 
     //referencia de muchos a uno para tieneRestaurante
-    @ManyToOne
-    @JoinColumn(name = "tieneRestaurante", referencedColumnName = "id")
-    private Testimonio tieneRestaurante;
+    @OneToMany(mappedBy = "tieneRestaurante")
+    private List<Restaurante> restaurantes;
 
     //referencia de muchos a uno para tieneHabitacion
     @ManyToOne
     @JoinColumn(name = "tieneHabitacion", referencedColumnName = "id")
-    private Testimonio tieneHabitacion;
+    private Habitacion tieneHabitacion;
+
 
     public DetalleReserva() {
     }
@@ -94,19 +95,27 @@ public class DetalleReserva {
         this.dias = dias;
     }
 
-    public Testimonio getTieneRestaurante() {
-        return tieneRestaurante;
-    }
-
-    public void setTieneRestaurante(Testimonio tieneRestaurante) {
-        this.tieneRestaurante = tieneRestaurante;
-    }
-
-    public Testimonio getTieneHabitacion() {
+    public Habitacion getTieneHabitacion() {
         return tieneHabitacion;
     }
 
-    public void setTieneHabitacion(Testimonio tieneHabitacion) {
+    public void setTieneHabitacion(Habitacion tieneHabitacion) {
         this.tieneHabitacion = tieneHabitacion;
+    }
+
+    public Cliente getTieneDetalleReserva() {
+        return tieneDetalleReserva;
+    }
+
+    public void setTieneDetalleReserva(Cliente tieneDetalleReserva) {
+        this.tieneDetalleReserva = tieneDetalleReserva;
+    }
+
+    public List<Restaurante> getDetalleReservas() {
+        return restaurantes;
+    }
+
+    public void setDetalleReservas(List<Restaurante> detalleReservas) {
+        this.restaurantes = detalleReservas;
     }
 }

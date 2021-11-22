@@ -2,6 +2,7 @@ package pe.edu.uandina.demo2Spring.modelo;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "cliente")
@@ -25,13 +26,12 @@ public class Cliente {
     @Column(name = "foto")
     private String foto;
 
-    @ManyToOne
-    @JoinColumn(name = "tieneTestimonio", referencedColumnName = "id")
-    private Testimonio tieneTestimonio;
-    //referencia de muchos a uno para tieneDetalleReserva
-    @ManyToOne
-    @JoinColumn(name = "tieneDetalleReserva", referencedColumnName = "id")
-    private Testimonio tieneDetalleReserva;
+
+    @OneToMany(mappedBy = "tieneTestimonio")
+    private List<Testimonio> testimonios;
+
+    @OneToMany(mappedBy = "tieneDetalleReserva")
+    private List<DetalleReserva> detalleReservas;
 
     public Cliente() {
     }
@@ -109,19 +109,4 @@ public class Cliente {
         this.foto = foto;
     }
 
-    public Testimonio getTieneTestimonio() {
-        return tieneTestimonio;
-    }
-
-    public void setTieneTestimonio(Testimonio tieneTestimonio) {
-        this.tieneTestimonio = tieneTestimonio;
-    }
-
-    public Testimonio getTieneDetalleReserva() {
-        return tieneDetalleReserva;
-    }
-
-    public void setTieneDetalleReserva(Testimonio tieneDetalleReserva) {
-        this.tieneDetalleReserva = tieneDetalleReserva;
-    }
 }
