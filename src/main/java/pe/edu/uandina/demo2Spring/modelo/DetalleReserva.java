@@ -1,5 +1,8 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -24,15 +27,18 @@ public class DetalleReserva {
    // cliente
     @ManyToOne
     @JoinColumn(name = "tieneDetalleReserva", referencedColumnName = "id")
+    @JsonBackReference
     private Cliente tieneDetalleReserva;
 
     //referencia de muchos a uno para tieneRestaurante
     @OneToMany(mappedBy = "tieneRestaurante")
+    @JsonManagedReference
     private List<Restaurante> restaurantes;
 
     //referencia de muchos a uno para tieneHabitacion
     @ManyToOne
     @JoinColumn(name = "tieneHabitacion", referencedColumnName = "id")
+    @JsonBackReference
     private Habitacion tieneHabitacion;
 
 

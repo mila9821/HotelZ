@@ -1,6 +1,8 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -28,9 +30,11 @@ public class Cliente {
 
 
     @OneToMany(mappedBy = "tieneTestimonio")
+    @JsonManagedReference
     private List<Testimonio> testimonios;
 
     @OneToMany(mappedBy = "tieneDetalleReserva")
+    @JsonManagedReference
     private List<DetalleReserva> detalleReservas;
 
     public Cliente() {

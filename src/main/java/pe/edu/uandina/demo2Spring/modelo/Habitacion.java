@@ -1,5 +1,7 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class Habitacion {
 
     //    pertenece a un detalleReserva
     @OneToMany(mappedBy = "tieneHabitacion")
+    @JsonManagedReference
     private List<DetalleReserva> detalleReservas;
 
     public Habitacion() {

@@ -1,5 +1,7 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class Restaurante {
     //    pertenece a un detalleReserva
     @ManyToOne
     @JoinColumn(name = "tieneRestaurante", referencedColumnName = "id")
+    @JsonBackReference
     private DetalleReserva tieneRestaurante;
 
     public Restaurante() {

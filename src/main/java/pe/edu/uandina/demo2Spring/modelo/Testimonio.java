@@ -1,5 +1,7 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,6 +19,7 @@ public class Testimonio {
 
     @ManyToOne
     @JoinColumn(name = "tieneTestimonio", referencedColumnName = "id")
+    @JsonBackReference
     private Cliente tieneTestimonio;
 
     public Testimonio() {
